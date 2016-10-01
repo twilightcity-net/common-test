@@ -11,6 +11,10 @@ buildscript {
 	}
 }
 
+plugins {
+    id "com.jfrog.bintray" version "1.7"
+}
+
 apply plugin: "com.bancvue.core-oss"
 apply plugin: "com.bancvue.maven-publish-ext"
 apply plugin: "net.jokubasdargis.build-timer"
@@ -31,5 +35,21 @@ dependencies {
 	testCompile "cglib:cglib-nodep:3.2.0"
 	testCompile("org.spockframework:spock-spring:1.0-groovy-2.4") {
 		exclude group: "org.codehaus.groovy"
+	}
+}
+
+bintray {
+	user = project.hasProperty("bintray.user") ? project.getProperty("bintray.user") : ""
+	key = project.hasProperty("bintray.key") ? project.getProperty("bintray.key") : ""
+	publications = ['commonTest']
+	pkg {
+		repo = 'maven'
+		userOrg = 'openmastery'
+                name = project.group + ':' + project.ext['artifactId']
+                desc = project.description
+		licenses = ['Apache-2.0']
+		websiteUrl = 'https://github.com/openmastery/common-test'
+		issueTrackerUrl = 'https://github.com/openmastery/common-test/issues'
+		vcsUrl = 'https://github.com/openmastery/common-test.git'
 	}
 }

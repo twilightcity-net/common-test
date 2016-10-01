@@ -1,0 +1,39 @@
+buildscript {
+	repositories {
+		jcenter()
+		maven {
+			url "https://dl.bintray.com/openmastery/maven"
+		}
+	}
+	dependencies {
+		classpath "com.bancvue:gradle-core:1.4-om.1"
+		classpath "net.jokubasdargis.buildtimer:gradle-plugin:0.1.1"
+	}
+}
+
+apply plugin: "com.bancvue.core-oss"
+apply plugin: "com.bancvue.maven-publish-ext"
+apply plugin: "net.jokubasdargis.build-timer"
+
+repositories {
+	mavenLocal()
+	jcenter()
+	maven {
+		url "https://dl.bintray.com/openmastery/maven"
+	}
+}
+
+
+dependencies {
+	compileOnly 'org.projectlombok:lombok:1.16.10'
+	compileOnly "org.codehaus.groovy:groovy-all:2.4.3"
+
+	compile "org.fluttercode.datafactory:datafactory:0.8"
+	compile "com.thedeanda:lorem:2.0"
+	compile "org.slf4j:slf4j-api:1.7.21"
+
+	testCompile "cglib:cglib-nodep:3.2.0"
+	testCompile("org.spockframework:spock-spring:1.0-groovy-2.4") {
+		exclude group: "org.codehaus.groovy"
+	}
+}

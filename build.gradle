@@ -18,11 +18,7 @@ apply plugin: "net.jokubasdargis.build-timer"
 repositories {
 	mavenLocal()
 	jcenter()
-	maven {
-		url "https://dl.bintray.com/openmastery/maven"
-	}
 }
-
 
 dependencies {
 	compileOnly 'org.projectlombok:lombok:1.16.10'

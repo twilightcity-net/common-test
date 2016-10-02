@@ -53,3 +53,7 @@ bintray {
 		vcsUrl = 'https://github.com/openmastery/common-test.git'
 	}
 }
+
+license {
+	excludes(["**/*.properties", "**/*.xml", "**/*.yml", "db/**", "licenses/**"])
+}

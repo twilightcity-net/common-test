@@ -6,7 +6,7 @@ buildscript {
 		}
 	}
 	dependencies {
-		classpath "com.bancvue:gradle-core:1.4-om.1"
+		classpath "com.bancvue:gradle-core:1.4-om.0"
 		classpath "net.jokubasdargis.buildtimer:gradle-plugin:0.1.1"
 	}
 }

@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/dreamscale/common-test.svg?branch=master)](https://travis-ci.org/dreamscale/common-test)
+[![Build Status](https://travis-ci.org/dreamscale-io/common-test.svg?branch=master)](https://travis-ci.org/dreamscale-io/common-test)
 
 # Common Test library
 

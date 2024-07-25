@@ -13,6 +13,13 @@ buildscript {
 	}
 }
 
+plugins {
+	id "idea"
+	id "groovy"
+	id "java-library"
+	id 'maven-publish'
+}
+
 repositories {
 	mavenLocal()
 	mavenCentral()
@@ -22,8 +29,6 @@ repositories {
 	}
 }
 
-apply plugin: "java-library"
-apply plugin: "maven-publish"
 apply plugin: "net.twilightcity.core"
 
 dependencies {
@@ -39,6 +44,10 @@ dependencies {
 	}
 }
 
+java {
+	withSourcesJar()
+}
+
 publishing {
 	repositories {
 		maven {
@@ -47,6 +56,12 @@ publishing {
 				username "ci"
 				password findProperty('nexus.password')
 			}
+		}
+	}
+	publications {
+		maven(MavenPublication) {
+			artifactId = project.ext.artifactId
+			from components.java
 		}
 	}
 }
